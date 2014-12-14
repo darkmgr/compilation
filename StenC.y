@@ -91,7 +91,7 @@ assignationExpression : varDeclaration '=' expression {
 							Symbol* var_symbol = getSymbol(tableSymboles, $1);
 
 							var_symbol->value = $3->value;
-							Quad* newQuad = genQuad(Q_ASSIGN, $3, NULL, var_symbol);
+							genQuad(Q_ASSIGN, $3, NULL, var_symbol);
 							/* quad_add(&listeQuads, newQuad); */
 
 					  }
@@ -103,7 +103,7 @@ assignationExpression : varDeclaration '=' expression {
 								exit(0);
 							}
 							var_symbol->value = $3->value;
-							Quad* newQuad = genQuad(Q_ASSIGN, $3, NULL, symbol);
+							genQuad(Q_ASSIGN, $3, NULL, symbol);
 							/* addQuadList(&listeQuads, newQuad); */
 					  }
 					  ;
@@ -121,7 +121,7 @@ variable: IDENTIFIER {
 		| INTEGER {
 			Symbol* temp2 = addSymbol(&tableSymboles, NULL, true, $1);
 			Symbol* temp1 = addSymbol(&tableSymboles, NULL, true, $1);
-			Quad* newQuad = genQuad(Q_ASSIGN, temp2, NULL, temp1);
+			genQuad(Q_ASSIGN, temp2, NULL, temp1);
 			/* quad_add(&listeQuads, newQuad); */
 			$$ = temp1;
 		};
@@ -129,25 +129,25 @@ variable: IDENTIFIER {
 expression: expression '+' expression{
 				$$ = addSymbol(&tableSymboles, NULL, false, calculQuad(Q_PLUS, $1->value, $3->value));
 				$$->value =  calculQuad(Q_PLUS, $1->value, $3->value);
-				Quad* newQuad = genQuad(Q_PLUS, $1, $3, $$);
+				genQuad(Q_PLUS, $1, $3, $$);
 				/* quad_add(&listeQuads, new_quad); */
 			}
 			|expression '-' expression{
 				$$ = addSymbol(&tableSymboles, NULL, false, calculQuad(Q_MINUS, $1->value, $3->value));
 				$$->value =  calculQuad(Q_MINUS, $1->value, $3->value);
-				Quad* newQuad = genQuad(Q_MINUS, $1, $3, $$);
+				genQuad(Q_MINUS, $1, $3, $$);
 				/* quad_add(&listeQuads, new_quad); */
 			}
 			| expression '*' expression{
 				$$ = addSymbol(&tableSymboles, NULL, false, calculQuad(Q_MULT, $1->value, $3->value));
 				$$->value =  calculQuad(Q_MULT, $1->value, $3->value);
-				Quad* newQuad = genQuad(Q_MULT, $1, $3, $$);
+				genQuad(Q_MULT, $1, $3, $$);
 				/* quad_add(&listeQuads, new_quad); */
 			}
 			|expression '/' expression{
 				$$ = addSymbol(&tableSymboles, NULL, false, calculQuad(Q_DIV, $1->value, $3->value));
 				$$->value =  calculQuad(Q_DIV, $1->value, $3->value);
-				Quad* newQuad = genQuad(Q_DIV, $1, $3, $$);
+				genQuad(Q_DIV, $1, $3, $$);
 				/* quad_add(&listeQuads, new_quad); */
 			}
 			| '(' expression ')' {

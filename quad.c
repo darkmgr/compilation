@@ -1,6 +1,6 @@
 #include "quad.h"
 
-Quad* genQuad(QuadType qt, Symbol* arg1, Symbol* arg2, Symbol* res) {
+void genQuad(QuadType qt, Symbol* arg1, Symbol* arg2, Symbol* res) {
     Quad* newQuad = NULL;
 
     newQuad = addQuadList(&quadTable, quadNumber);

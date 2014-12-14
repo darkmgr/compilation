@@ -23,7 +23,7 @@ typedef struct Quad {
     struct Quad*		next;
 }Quad;
 
-Quad* genQuad(QuadType type, Symbol* arg1, Symbol* arg2, Symbol* res);
+void genQuad(QuadType type, Symbol* arg1, Symbol* arg2, Symbol* res);
 Quad* addQuadList(Quad** quad, int index);
 void quadFree(Quad* quad);
 void printQuad(Quad* quad);
