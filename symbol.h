@@ -1,91 +1,30 @@
+#ifndef SYMBOL_H
+#define SYMBOL_H
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-#define false 0
-#define true 1
-
-#define SYMBOL_TYPECTE_ENTIER 0
-#define SYMBOL_TYPECTE_BOOL 1
-#define SYMBOL_TYPECTE_CHAR 2
-#define SYMBOL_TYPECTE_UNIT 3
-
-#define SYMBOL_TYPESYMBOL_CTE 0
-#define SYMBOL_TYPESYMBOL_FCT 1
-
-typedef int bool;
-typedef struct symbol symbol;
+#include <stdbool.h>
 
 typedef enum {
-	INT = 1,
-	INT_CST,
-	INT_VECT,
-	REAL,
-	REAL_CST,
-	REAL_VECT,
-	COMPLEX,
-	COMPLEX_CST,
-	COMPLEX_VECT,
-	BOOL,
-	BOOL_CST,
-	BOOL_VECT,
-	FUNCTION,
-	SYMBOL
-}symbolType;
+	S_INT,
+	S_INT_ARRAY
+}SymbolType;
 
-typedef enum {
-		constant,
-		input,
-		output,
-		global,
-		local,
-		algo
-}declaration;
+typedef struct symbol {
+	SymbolType symbolType;
+	char* id;
+	bool isConstant;
+	int value;
+	struct symbol* next;
+} Symbol;
 
-typedef union
-{
-	union
-	{
-		bool val;
-		bool *vect;
-	}boolean;
-	
-	union
-	{
-		int val;
-		int *vect;
-	}integer;
-	
-	union
-	{
-		double val;
-		double *vect;
-	}real;
-	
-	struct{
-		double real;
-		double imaginaire;
-	}complex;
-	
-	union
-	{
-		char *val;
-	}string;
-}symbolVal;
+Symbol* genSymbole(char* id, bool isconstant, int value);
+Symbol* getSymbol(Symbol* symbolsList, char* id);
+Symbol* addSymbol(Symbol** symbolList, char* id, bool isConstant, int value);
+void printSymbol(Symbol* symbolList);
 
-struct symbol {
-	char *name;
-	int index;
-	symbolType type;
-	symbolVal val;
-	declaration zone;
-	int composed;
-};
+int   symbolNumber;
 
-symbol** symTable;
+#endif
 
-
-typedef struct idType{
-	char *string;
-	int size;
-}idType;

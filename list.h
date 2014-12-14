@@ -1,3 +1,6 @@
+#ifndef LIST_H
+#define LIST_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,16 +10,18 @@
 
 typedef struct element element;
 
-struct element
-{
-    T        head;
-    element *tail;
+struct element {
+    T        	head;
+    *element 	tail;
 };
 
-typedef element *list;
+typedef *element list;
 
 void complete(list lst, int quad);
-void freelist(list l);
+void freeList(list l);
 list nil();
-list constructor(T v, list l);
+list cons(T v, list l);
 list concat(list l1, list l2);
+
+#endif
+
