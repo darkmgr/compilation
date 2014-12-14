@@ -3,7 +3,7 @@
 #include <string.h>
 #include "symbol.h"
 
-*Symbol genSymbole(*char id, bool isConstant, int value){
+*Symbol genSymbol(*char id, bool isConstant, int value){
 	*Symbol newSymbol;
 
 	//on verifie si on peut encore generer un symbol (memoire)

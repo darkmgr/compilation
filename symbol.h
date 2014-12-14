@@ -19,7 +19,7 @@ typedef struct symbol {
 	struct *symbol 	next;
 }Symbol;
 
-Symbol* genSymbole(char* id, bool isconstant, int value);
+Symbol* genSymbol(char* id, bool isconstant, int value);
 Symbol* getSymbol(Symbol* symbolsList, char* id);
 Symbol* addSymbol(Symbol** symbolList, char* id, bool isConstant, int value);
 void printSymbol(Symbol* symbolList);

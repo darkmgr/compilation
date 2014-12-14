@@ -1,16 +1,11 @@
-all: compile
+LEX = lex
+YACC = yacc -d -v
+CC = gcc
+#SRC = quad.c quad.h symbol.h symbol.c
 
-compile: yacc flex
-	gcc *.c -lfl -o analyseur -lpthread
-
-flex: analyseur_StenC.lex
-	flex analyseur_StenC.lex
-
-yacc: prog.y
-	yacc -d -v prog.y
-
-zip: clean
-	zip MullerSaidani.zip *
-	
-clean:
-	rm -f *.o analyseur *.tab.* lex.* y.output *.zip
+stenC: StenC.c y.tab.c lex.yy.c
+	$(CC) y.tab.c lex.yy.c quad.h quad.c symbol.h symbol.c -ly -lfl -Wall -g
+y.tab.c: StenC.y
+	$(YACC) StenC.y
+lex.yy.c: analyseur_StenC.l
+	$(LEX) analyseur_StenC.l

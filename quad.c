@@ -44,6 +44,26 @@
     return newQuad;
 }
 
+int calculQuad(enum QuadType op, int arg1, int arg2){
+	switch(op){
+		case Q_MULT:
+			return arg1 * arg2;
+			break;
+		case Q_DIV:
+			return arg1 / arg2;
+			break;
+		case Q_PLUS:
+			return arg1 + arg2;
+			break;
+		case Q_MINUS:
+			return arg1 - arg2;
+			break;
+		default:
+			return 0;
+			break;
+	}
+}
+
 void quadFree(*Quad q) {
 	*Quad nextQuad = q->next;
 

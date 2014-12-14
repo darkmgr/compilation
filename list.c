@@ -12,7 +12,7 @@ void complete(list lst, int quad) {
     *element tmp = lst;
 
     while(tmp != NULL) {
-        if((tmp->head->quadType != Q_ASSIGNMENT))
+        if((tmp->head->quadType != Q_ASSIGN))
             tmp->head->res = quad;
 		
         tmp = tmp->tail;
