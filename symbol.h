@@ -12,12 +12,12 @@ typedef enum {
 }SymbolType;
 
 typedef struct symbol {
-	SymbolType symbolType;
-	char* id;
-	bool isConstant;
-	int value;
-	struct symbol* next;
-} Symbol;
+	SymbolType 		symbolType;
+	*char 			id;
+	bool 			isConstant;
+	int 			value;
+	struct *symbol 	next;
+}Symbol;
 
 Symbol* genSymbole(char* id, bool isconstant, int value);
 Symbol* getSymbol(Symbol* symbolsList, char* id);

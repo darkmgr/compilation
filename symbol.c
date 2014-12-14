@@ -13,11 +13,11 @@
 	
 	if(id == NULL){
 		// 100 is the maximum length of a temp
-		char tmp_name[100] = "temp_";
+		char name[100] = "temp_";
 		char str_number[95];
 		sprintf(str_number, "%d", symbolNumber);
-		strcat(tmp_name, str_number);
-		newSymbol->id = strdup(tmp_name);
+		strcat(name, str_number);
+		newSymbol->id = strdup(name);
 		//on incremente la variable global du nombre de quad genere
 		symbolNumber++;
 	} else {

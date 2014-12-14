@@ -21,7 +21,7 @@ typedef struct quad {
     *Symbol 			arg2;
     *Symbol 			res;
     struct *quad		next;
-} Quad;
+}Quad;
 
 Quad* genQuad(QuadType type, *Symbol arg1, *Symbol arg2, *Symbol res);
 Quad* addQuadList(Quad **quad, int index);
