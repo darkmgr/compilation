@@ -13,7 +13,7 @@ typedef enum {
 
 typedef struct symbol {
 	SymbolType 		symbolType;
-	*char 			id;
+	char*			id;
 	bool 			isConstant;
 	int 			value;
 	struct *symbol 	next;
