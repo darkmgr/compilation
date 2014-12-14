@@ -92,7 +92,7 @@ assignationExpression : varDeclaration '=' expression {
 
 							var_symbol->value = $3->value;
 							Quad* newQuad = genQuad(Q_ASSIGN, $3, NULL, var_symbol);
-							quad_add(&listeQuads, newQuad);
+							/* quad_add(&listeQuads, newQuad); */
 
 					  }
 					  | IDENTIFIER '=' expression {
@@ -122,7 +122,7 @@ variable: IDENTIFIER {
 			Symbol* temp2 = symbol_add(&tableSymboles, NULL, true, $1);
 			Symbol* temp1 = symbol_add(&tableSymboles, NULL, true, $1);
 			Quad* newQuad = genQuad(Q_ASSIGN, temp2, NULL, temp);
-			quad_add(&listeQuads, newQuad);
+			/* quad_add(&listeQuads, newQuad); */
 			$$ = temp;
 		};
 
