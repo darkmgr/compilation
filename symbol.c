@@ -46,7 +46,7 @@ Symbol* addSymbol(Symbol** symbolsList, char* id, bool isConstant, int value){
 	return newSymbol;
 }
 
-Symbol* getSymbol(Symbol* symbolList, *char id) {
+Symbol* getSymbol(Symbol* symbolList, char* id) {
 	Symbol* getSymbol = NULL;
 	Symbol* list = symbolList;
 	

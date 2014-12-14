@@ -17,10 +17,10 @@ typedef enum{
 typedef struct quad {
     int           		index;
 	QuadType 			quadType;
-    Symbol*       		arg1;
-    Symbol* 			arg2;
-    Symbol* 			res;
-    struct Quad *		next;
+    struct Symbol*      arg1;
+    struct Symbol* 		arg2;
+    struct Symbol* 		res;
+    struct Quad*		next;
 }Quad;
 
 Quad* genQuad(QuadType type, Symbol* arg1, Symbol* arg2, Symbol* res);

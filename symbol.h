@@ -16,7 +16,7 @@ typedef struct symbol {
 	char*			id;
 	bool 			isConstant;
 	int 			value;
-	struct *symbol 	next;
+	struct symbol* 	next;
 }Symbol;
 
 Symbol* genSymbol(char* id, bool isconstant, int value);
