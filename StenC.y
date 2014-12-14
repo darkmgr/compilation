@@ -119,8 +119,8 @@ variable: IDENTIFIER {
 
 		}
 		| INTEGER {
-			Symbol* temp2 = symbol_add(&tableSymboles, NULL, true, $1);
-			Symbol* temp1 = symbol_add(&tableSymboles, NULL, true, $1);
+			Symbol* temp2 = addSymbol(&tableSymboles, NULL, true, $1);
+			Symbol* temp1 = addSymbol(&tableSymboles, NULL, true, $1);
 			Quad* newQuad = genQuad(Q_ASSIGN, temp2, NULL, temp);
 			/* quad_add(&listeQuads, newQuad); */
 			$$ = temp;
