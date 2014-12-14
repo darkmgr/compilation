@@ -121,9 +121,9 @@ variable: IDENTIFIER {
 		| INTEGER {
 			Symbol* temp2 = addSymbol(&tableSymboles, NULL, true, $1);
 			Symbol* temp1 = addSymbol(&tableSymboles, NULL, true, $1);
-			Quad* newQuad = genQuad(Q_ASSIGN, temp2, NULL, temp);
+			Quad* newQuad = genQuad(Q_ASSIGN, temp2, NULL, temp1);
 			/* quad_add(&listeQuads, newQuad); */
-			$$ = temp;
+			$$ = temp1;
 		};
 
 expression: expression '+' expression{
