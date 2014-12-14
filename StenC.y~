@@ -5,6 +5,7 @@
 	#include <ctype.h>
 	#include <string.h>
 	#include <math.h>
+	#include "list.h"
 	#include "symbol.h"
 	#include "quad.h"
 	#include "y.tab.h"

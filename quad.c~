@@ -1,7 +1,7 @@
 #include "quad.h"
 
-Quad* genQuad(QuadType qt, Symbol* arg1, Symbol* arg2, Symbol* res) {
-    Quad* newQuad = NULL;
+*Quad genQuad(QuadType qt, *Symbol arg1, *Symbol arg2, *Symbol res) {
+    *Quad newQuad = NULL;
 
     newQuad = addQuadList(&quadTable, quadNumber);
 
@@ -16,8 +16,8 @@ Quad* genQuad(QuadType qt, Symbol* arg1, Symbol* arg2, Symbol* res) {
     return newQuad;
 }
 
-Quad* addQuadList(Quad** quad, int index) {
-    Quad* newQuad;
+*Quad addQuadList(**Quad quad, int index) {
+    *Quad newQuad;
 
 	//on verifie si on peut encore generer un quad (memoire)
     if(!(newQuad = malloc(sizeof(Quad)))) {
@@ -28,10 +28,10 @@ Quad* addQuadList(Quad** quad, int index) {
     newQuad->next  = NULL;
 
 	//on met a jour la table des quads avec le quad genere
-    if(Quad* == NULL) {
-        Quad* = newQuad;
+    if(*quad == NULL) {
+        *quad = newQuad;
     } else {
-        Quad* temp = Quad*;
+        *Quad temp = *quad;
 
 		//on recupere le dernier quad genere dans la table des symbols pour mettre a jour son pointeur next
         while(temp->next != NULL) {
@@ -64,8 +64,8 @@ int calculQuad(enum QuadType op, int arg1, int arg2){
 	}
 }
 
-void quadFree(Quad* q) {
-	Quad* nextQuad = q->next;
+void quadFree(*Quad q) {
+	*Quad nextQuad = q->next;
 
 	while(nextQuad != NULL){
 
@@ -75,7 +75,7 @@ void quadFree(Quad* q) {
 	}
 }
 
-void printQuad(Quad* quad) {
+void printQuad(*Quad quad) {
     printf("\n\n##### START QUADS TABLE #####\n");
 
 	while(quad != NULL){
@@ -112,7 +112,7 @@ void printQuad(Quad* quad) {
     printf("\n----------------------------------------------");
 }
 
-void printMips(Quad Quad*) {
+void printMips(Quad *quad) {
     printf("\n\n##### START MIPS #####\n");
 
     while(quad) {
