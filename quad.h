@@ -14,7 +14,7 @@ typedef enum{
 	Q_MULT
 }QuadType;
 
-typedef struct quad {
+typedef struct Quad {
     int           		index;
 	QuadType 			quadType;
     struct Symbol*      arg1;

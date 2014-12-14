@@ -11,12 +11,12 @@ typedef enum {
 	S_INT_ARRAY
 }SymbolType;
 
-typedef struct symbol {
+typedef struct Symbol {
 	SymbolType 		symbolType;
 	char*			id;
 	bool 			isConstant;
 	int 			value;
-	struct symbol* 	next;
+	struct Symbol* 	next;
 }Symbol;
 
 Symbol* genSymbol(char* id, bool isconstant, int value);
