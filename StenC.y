@@ -160,6 +160,7 @@ expression: expression '+' expression{
 %%
 
 int main(){
-	printf("=== START ===\n");
+	printf("##### START StenC COMPILATEUR #####\n");
+	printf("##### MULLER JF - SAIDANI Jeremy #####\n");
 	return yyparse();
 }
