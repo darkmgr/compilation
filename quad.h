@@ -3,6 +3,22 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef enum{ 
+	Q_GOTO     = 1, 
+	Q_IFEQGOTO = 2, 
+	Q_ASSIGN   = 3,
+	Q_FUNC 	   = 4, 
+	Q_ADD      = 5, 
+	Q_MULT     = 6,
+	Q_DIV      = 7,
+	Q_MINUS    = 8,
+	Q_IFLTGOTO = 9,
+	Q_IFLEGOTO = 10,
+	Q_IFGTGOTO = 11,
+	Q_IFGEGOTO = 12,
+	Q_IFNEQGOTO = 13
+}QuadType;
+
 typedef struct quad {
     int           index;
     int       		 s1;
