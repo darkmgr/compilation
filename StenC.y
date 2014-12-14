@@ -88,10 +88,10 @@ declarationTableau : varDeclaration multiCrochets '=' listeAccolade
 					;
 
 assignationExpression : varDeclaration '=' expression {
-							Symbol* var_symbol = getSymbol(tableSymboles, $1);
+							Symbol* symbol = getSymbol(tableSymboles, $1);
 
-							var_symbol->value = $3->value;
-							genQuad(Q_ASSIGN, $3, NULL, var_symbol);
+							symbol->value = $3->value;
+							genQuad(Q_ASSIGN, $3, NULL, symbol);
 							/* quad_add(&listeQuads, newQuad); */
 
 					  }
@@ -102,7 +102,7 @@ assignationExpression : varDeclaration '=' expression {
 								printf("%s n'est pas déclaré \n", $1);
 								exit(0);
 							}
-							var_symbol->value = $3->value;
+							symbol->value = $3->value;
 							genQuad(Q_ASSIGN, $3, NULL, symbol);
 							/* addQuadList(&listeQuads, newQuad); */
 					  }
